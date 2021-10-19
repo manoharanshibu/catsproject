@@ -19,7 +19,7 @@ const FileUpload = () => {
 
     return <div className="uploadconatiner">
         <DropzoneArea acceptedFiles={['image/*']} filesLimit={1} onChange={(files) => setFiles(files)} />
-        <button onClick={onSubmit}>Upload</button>
+        <button className="uploadbutton button" onClick={onSubmit}>Upload</button>
     </div>
 }
 export default FileUpload;
