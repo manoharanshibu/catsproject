@@ -1,7 +1,7 @@
 import { ActionType } from "../action-types"
 import { Action } from "../actions"
 import axios from 'axios';
-import { Dispatch } from 'redux'
+import { Dispatch } from 'redux';
 
 const endpoint = "https://api.thecatapi.com/v1";
 const subId = "shibumanoharan";
@@ -102,23 +102,25 @@ export const makeUnFavourite = (imageId: string, favId: string) => {
     }
 };
 
-export const uploadCat = async (file: File) => {
+export const uploadCat = (file: File, history: any) => {
     const formdata = new FormData();
     formdata.append("file", file, file.name);
     formdata.append("sub_id", subId);
-    try {
-        await axios.post(`${endpoint}/images/upload`, formdata, {
-            ...config,
-            headers: { ...config.headers, "Content-Type": "multipart/form-data" },
-        }).then((response) => {
-            return (dispatch: Dispatch<Action>) => dispatch({
-                type: ActionType.MAKE_UN_FAVOURITE,
-                payload: response.data
+    return (dispatch: Dispatch<Action>) => {
+        try {
+            axios.post(`${endpoint}/images/upload`, formdata, {
+                ...config,
+                headers: { ...config.headers, "Content-Type": "multipart/form-data" },
+            }).then((response) => {
+                history.push('/')
+                dispatch({
+                    type: ActionType.UPLOAD_CAT_SUCCESS,
+                    payload: response.data
+                });
             });
 
-        });
-
-    } catch (error) {
-        console.log('error')
+        } catch (error) {
+            console.log('error')
+        }
     }
 };

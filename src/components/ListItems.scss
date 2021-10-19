@@ -3,12 +3,20 @@
     margin: 10px;
     padding: 10px;
     flex-wrap: wrap;
+    column-gap: 5px;
+    ;
 }
 
 img {
     height: 200px;
     margin: 10px 10px 0;
     max-width: 200px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .votetext {
@@ -18,13 +26,13 @@ img {
 }
 
 .buttonbar {
-    width: 240px;
+    width: 230px;
     height: 50px;
     border: 1px solid;
     position: relative;
-    vertical-align: middle;
     background-color: pink;
     border: pink;
+    padding: 5px;
 }
 
 .item {
@@ -32,4 +40,5 @@ img {
     width: 240px;
     height: 240px;
     background-color: whitesmoke;
+    align-content: center;
 }
