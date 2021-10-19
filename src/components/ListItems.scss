@@ -1,16 +1,23 @@
 .container {
     display: flex;
-    margin: 10px;
+    margin: 20px;
     padding: 10px;
     flex-wrap: wrap;
-    column-gap: 5px;
-    ;
+    gap: auto;
+    justify-content: flex-start;
+    background-color: azure;
 }
 
 img {
     height: 200px;
     margin: 10px 10px 0;
     max-width: 200px;
+    flex-grow: 1;
+}
+
+.itembox {
+    border: 1px solid;
+    margin: 10px;
 }
 
 .center {
@@ -26,19 +33,19 @@ img {
 }
 
 .buttonbar {
-    width: 230px;
+    margin-left: -5px;
+    width: 240px;
     height: 50px;
-    border: 1px solid;
     position: relative;
     background-color: pink;
-    border: pink;
     padding: 5px;
+    text-align: center;
 }
 
 .item {
     margin: 20px 5px;
     width: 240px;
     height: 240px;
-    background-color: whitesmoke;
+    background-color: azure;
     align-content: center;
 }
