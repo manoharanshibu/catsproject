@@ -3,11 +3,11 @@ import { Action } from "../actions"
 import axios from 'axios';
 import { Dispatch } from 'redux';
 
-const endpoint = "https://api.thecatapi.com/v1";
-const subId = "shibumanoharan";
+const endpoint = process.env.REACT_APP_CATS_END_POINT as string;
+const subId = process.env.REACT_APP_CATS_SUB_ID as string;
 const config = {
     headers: {
-        "x-api-key": 'a5d15288-e5f1-4933-8d9a-ce358c2a7bf3',
+        "x-api-key": process.env.REACT_APP_CATS_X_API_KEY as string,
     },
 };
 const limit = 50;

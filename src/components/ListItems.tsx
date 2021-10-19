@@ -22,11 +22,11 @@ const ListItems = () => {
 
   useEffect(() => {
     dispatch(fetchCats());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (loadedCats && !loadedVotes) dispatch(fetchVotes());
-  }, [loadedCats]);
+  }, [loadedCats, dispatch, loadedVotes]);
 
   return (
     <div><button className="uploadbutton button" onClick={() => history.push('/upload')}>Upload New Cat Image</button>
@@ -34,7 +34,7 @@ const ListItems = () => {
         {cats.map((item: any) => {
           return (<div className="itembox">
             <div className="item">
-              <img className="center" src={item.url} />
+              <img className="center" src={item.url} alt={item.url} />
               <div className="buttonbar">
                 <Typography variant="button" className="votetext">
                   Votes: {item.votes ? item.votes.value : 0}
